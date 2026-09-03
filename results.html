@@ -1,0 +1,315 @@
+<!DOCTYPE html>  <html>  
+<head>  
+    <title>Resume Analysis Results</title>  <link rel="stylesheet"  
+      href="{{ url_for('static', filename='style.css') }}">
+
+</head>  <body>  <div class="container">  
+
+    <!-- PAGE HEADER -->  
+
+    <div class="results-header">  
+
+        <h1>Resume Analysis Results</h1>  
+
+        <p class="subtitle">  
+            AI-powered insights based on your resume content  
+        </p>  
+
+    </div>  
+
+
+    <!-- FINAL SCORE -->  
+
+    <div class="score-card">  
+
+        <h2>Your Resume Score</h2>  
+
+        <div class="score-circle">  
+
+            <div class="score-inner">  
+
+                <span class="score-number">  
+                    {{ resume_score }}  
+                </span>  
+
+                <span class="score-total">  
+                    /100  
+                </span>  
+
+            </div>  
+
+        </div>  
+
+        <h3>{{ resume_rating }}</h3>  
+
+        <p class="score-description">  
+            Your resume has been analyzed based on skills,  
+            structure, education, projects and completeness.  
+        </p>  
+
+    </div>  
+
+
+    <!-- ROLE MATCHING -->  
+
+    <div class="card">  
+
+        <h2>Career Role Matching</h2>  
+
+        <p class="section-description">  
+            Percentage of relevant skills detected for each role.  
+        </p>  
+
+
+        <div class="role-progress">  
+
+            <div class="role-title">  
+                <span>AI / Machine Learning</span>  
+                <strong>{{ ai_percentage }}%</strong>  
+            </div>  
+
+            <div class="progress-bar">  
+                <div class="progress-fill"  
+                     style="width: {{ ai_percentage }}%;">  
+                </div>  
+            </div>  
+
+        </div>  
+
+
+        <div class="role-progress">  
+
+            <div class="role-title">  
+                <span>Data Analyst</span>  
+                <strong>{{ data_percentage }}%</strong>  
+            </div>  
+
+            <div class="progress-bar">  
+                <div class="progress-fill"  
+                     style="width: {{ data_percentage }}%;">  
+                </div>  
+            </div>  
+
+        </div>  
+
+
+        <div class="role-progress">  
+
+            <div class="role-title">  
+                <span>Cloud & DevOps</span>  
+                <strong>{{ cloud_percentage }}%</strong>  
+            </div>  
+
+            <div class="progress-bar">  
+                <div class="progress-fill"  
+                     style="width: {{ cloud_percentage }}%;">  
+                </div>  
+            </div>  
+
+        </div>  
+
+
+        <div class="role-progress">  
+
+            <div class="role-title">  
+                <span>Cybersecurity</span>  
+                <strong>{{ cyber_percentage }}%</strong>  
+            </div>  
+
+            <div class="progress-bar">  
+                <div class="progress-fill"  
+                     style="width: {{ cyber_percentage }}%;">  
+                </div>  
+            </div>  
+
+        </div>  
+
+
+        <div class="role-progress">  
+
+            <div class="role-title">  
+                <span>Project Manager</span>  
+                <strong>{{ product_percentage }}%</strong>  
+            </div>  
+
+            <div class="progress-bar">  
+                <div class="progress-fill"  
+                     style="width: {{ product_percentage }}%;">  
+                </div>  
+            </div>  
+
+        </div>  
+
+    </div>  
+
+
+    <!-- SCORE BREAKDOWN -->  
+
+    <div class="card">  
+
+        <h2>Resume Score Breakdown</h2>  
+
+        <div class="breakdown-grid">  
+
+
+            <div class="breakdown-item">  
+
+                <span>Contact Information</span>  
+
+                <strong>  
+                    {{ contact_score }}/15  
+                </strong>  
+
+            </div>  
+
+
+            <div class="breakdown-item">  
+
+                <span>Skills Section</span>  
+
+                <strong>  
+                    {{ skills_score }}/20  
+                </strong>  
+
+            </div>  
+
+
+            <div class="breakdown-item">  
+
+                <span>Education Details</span>  
+
+                <strong>  
+                    {{ education_score }}/15  
+                </strong>  
+
+            </div>  
+
+
+            <div class="breakdown-item">  
+
+                <span>Project Section</span>  
+
+                <strong>  
+                    {{ project_score }}/20  
+                </strong>  
+
+            </div>  
+
+
+            <div class="breakdown-item">  
+
+                <span>Resume Structure</span>  
+
+                <strong>  
+                    {{ structure_score }}/15  
+                </strong>  
+
+            </div>  
+
+
+            <div class="breakdown-item">  
+
+                <span>Resume Completeness</span>  
+
+                <strong>  
+                    {{ completeness }}/15  
+                </strong>  
+
+            </div>  
+
+
+        </div>  
+
+    </div>  
+
+
+    <!-- SKILLS FOUND -->  
+
+    <div class="card">  
+
+        <h2>Skills Detected</h2>  
+
+        <p class="section-description">  
+            These skills were detected in your resume.  
+        </p>  
+
+        <div class="skills">  
+
+            {% for skill in detected_list %}  
+
+                <span class="skill-found">  
+                    {{ skill }}  
+                </span>  
+
+            {% endfor %}  
+
+        </div>  
+
+    </div>  
+
+
+    <!-- MISSING SKILLS -->  
+
+    <div class="card">  
+
+        <h2>Additional Skills</h2>  
+
+        <p class="section-description">  
+            These are skills that were not detected and may be  
+            relevant depending on your target career role.  
+        </p>  
+
+        <div class="skills">  
+
+            {% for skill in missing_skills %}  
+
+                <span class="skill-missing">  
+                    {{ skill }}  
+                </span>  
+
+            {% endfor %}  
+
+        </div>  
+
+    </div>  
+
+
+    <!-- SUGGESTIONS -->  
+
+    <div class="card suggestions">  
+
+        <h2>Recommendations to Improve Your Resume</h2>  
+
+        <p class="section-description">  
+            Consider these improvements to strengthen your resume.  
+        </p>  
+
+        <ul>  
+
+            {% for suggestion in suggestions %}  
+
+                <li>  
+                    {{ suggestion }}  
+                </li>  
+
+            {% endfor %}  
+
+        </ul>  
+
+    </div>  
+
+
+    <!-- BACK BUTTON -->  
+
+    <div class="button-container">  
+
+        <a href="/" class="back-button">  
+            Analyze Another Resume  
+        </a>  
+
+    </div>  
+
+</div>
+
+</body>  
+</html>
