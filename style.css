@@ -1,0 +1,650 @@
+/* ========================================
+   AI RESUME ANALYZER - PREMIUM UI
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ========================================
+   BODY & BACKGROUND
+======================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #eaf0ff;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 10% 15%, rgba(92, 80, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 90% 70%, rgba(0, 170, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(140, 70, 255, 0.12), transparent 35%),
+        linear-gradient(135deg, #060916, #101630, #080b1c);
+
+    background-attachment: fixed;
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 55px 0;
+}
+
+
+/* ========================================
+   HEADINGS
+======================================== */
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 12px;
+
+    background: linear-gradient(90deg, #ffffff, #b9c7ff, #86e8ff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.subtitle {
+    text-align: center;
+    color: #aab5d6;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+
+/* ========================================
+   RESULTS HEADER
+======================================== */
+
+.results-header {
+    margin-bottom: 10px;
+}
+
+
+/* ========================================
+   UPLOAD CARD
+======================================== */
+
+.upload-card {
+    position: relative;
+
+    max-width: 680px;
+    margin: 0 auto;
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28, 36, 78, 0.90),
+            rgba(10, 15, 38, 0.95)
+        );
+
+    border: 1px solid rgba(130, 150, 255, 0.20);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        0 0 60px rgba(80, 90, 255, 0.08);
+
+    backdrop-filter: blur(14px);
+}
+
+
+.upload-card h2 {
+    font-size: 26px;
+    color: #f2f5ff;
+    margin-bottom: 28px;
+}
+
+
+/* ========================================
+   FILE INPUT
+======================================== */
+
+input[type="file"] {
+    width: 100%;
+    padding: 20px;
+
+    color: #b9c4e5;
+
+    background: rgba(7, 11, 28, 0.80);
+
+    border: 1px dashed rgba(130, 150, 255, 0.45);
+
+    border-radius: 14px;
+
+    cursor: pointer;
+}
+
+
+input[type="file"]::file-selector-button {
+    margin-right: 15px;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #5d70ff,
+        #875cff
+    );
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+button,
+.back-button {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #586dff,
+        #8757ff
+    );
+
+    box-shadow:
+        0 12px 28px rgba(90, 90, 255, 0.28);
+
+    transition: 0.25s ease;
+}
+
+
+button:hover,
+.back-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 38px rgba(110, 90, 255, 0.45);
+}
+
+
+/* ========================================
+   SCORE CARD
+======================================== */
+
+.score-card {
+    text-align: center;
+
+    padding: 42px;
+
+    margin-bottom: 28px;
+
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(90, 100, 255, 0.18),
+            transparent 60%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(27, 34, 76, 0.94),
+            rgba(10, 15, 38, 0.97)
+        );
+
+    border: 1px solid rgba(130, 145, 255, 0.22);
+
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.42);
+}
+
+
+.score-card h2 {
+    color: #c4ccff;
+    margin-bottom: 24px;
+}
+
+
+/* ========================================
+   SCORE CIRCLE
+======================================== */
+
+.score-circle {
+    width: 190px;
+    height: 190px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        conic-gradient(
+            #7b6cff,
+            #55d6ff,
+            #8f6cff,
+            #7b6cff
+        );
+
+    box-shadow:
+        0 0 30px rgba(100, 110, 255, 0.30),
+        0 0 70px rgba(80, 180, 255, 0.12);
+}
+
+
+.score-inner {
+    width: 165px;
+    height: 165px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: baseline;
+    justify-content: center;
+
+    padding-top: 58px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171d42,
+            #0b1028
+        );
+
+    box-shadow:
+        inset 0 0 25px rgba(0, 0, 0, 0.35);
+}
+
+
+.score-number {
+    font-size: 46px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.score-total {
+    font-size: 18px;
+    color: #aeb8e8;
+}
+
+
+.score-card h3 {
+    font-size: 23px;
+    color: #83e7ff;
+    margin-bottom: 12px;
+}
+
+
+.score-description {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: #aeb8d8;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   GENERAL CARDS
+======================================== */
+
+.card {
+    padding: 30px;
+
+    margin-bottom: 28px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 31, 70, 0.90),
+            rgba(10, 15, 36, 0.95)
+        );
+
+    border: 1px solid rgba(130, 145, 255, 0.14);
+
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.34);
+}
+
+
+.card h2 {
+    margin-bottom: 10px;
+
+    font-size: 24px;
+
+    color: #f0f3ff;
+}
+
+
+.section-description {
+    color: #9da9cf;
+
+    margin-bottom: 25px;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   ROLE MATCHING PROGRESS BARS
+======================================== */
+
+.role-progress {
+    margin-bottom: 24px;
+}
+
+
+.role-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: #c7d0ed;
+
+    font-size: 16px;
+}
+
+
+.role-title strong {
+    color: #87e8ff;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 11px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.32);
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6878ff,
+            #66d8ff
+        );
+
+    box-shadow:
+        0 0 14px rgba(90, 190, 255, 0.45);
+
+    transition: width 0.7s ease;
+}
+
+
+/* ========================================
+   SCORE BREAKDOWN GRID
+======================================== */
+
+.breakdown-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+
+.breakdown-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(7, 12, 30, 0.48);
+
+    border:
+        1px solid rgba(130, 150, 255, 0.10);
+}
+
+
+.breakdown-item span {
+    color: #b7c1e0;
+}
+
+
+.breakdown-item strong {
+    color: #88e8ff;
+
+    font-size: 17px;
+}
+
+
+/* ========================================
+   SKILL TAGS
+======================================== */
+
+.skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 11px;
+}
+
+
+.skill-found,
+.skill-missing {
+    padding: 9px 15px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+.skill-found {
+    color: #8effd1;
+
+    background:
+        rgba(30, 200, 135, 0.11);
+
+    border:
+        1px solid rgba(70, 255, 180, 0.22);
+}
+
+
+.skill-missing {
+    color: #ffb2bd;
+
+    background:
+        rgba(255, 70, 110, 0.10);
+
+    border:
+        1px solid rgba(255, 100, 145, 0.18);
+}
+
+
+/* ========================================
+   SUGGESTIONS
+======================================== */
+
+.suggestions {
+    border:
+        1px solid rgba(130, 110, 255, 0.24);
+}
+
+
+.suggestions ul {
+    padding-left: 23px;
+}
+
+
+.suggestions li {
+    margin-bottom: 14px;
+
+    color: #c4cce7;
+
+    line-height: 1.6;
+}
+
+
+.suggestions li::marker {
+    color: #8c78ff;
+}
+
+
+/* ========================================
+   BUTTON CONTAINER
+======================================== */
+
+.button-container {
+    text-align: center;
+
+    padding: 10px 0 35px;
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #080c1c;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #343c75;
+
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6576ff;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 92%;
+        padding: 35px 0;
+    }
+
+
+    h1 {
+        font-size: 30px;
+    }
+
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+
+    .upload-card {
+        padding: 35px 20px;
+    }
+
+
+    .score-card {
+        padding: 32px 18px;
+    }
+
+
+    .score-circle {
+        width: 160px;
+        height: 160px;
+    }
+
+
+    .score-inner {
+        width: 138px;
+        height: 138px;
+
+        padding-top: 47px;
+    }
+
+
+    .score-number {
+        font-size: 38px;
+    }
+
+
+    .card {
+        padding: 22px 18px;
+    }
+
+
+    .breakdown-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .role-title {
+        font-size: 15px;
+    }
+
+}
